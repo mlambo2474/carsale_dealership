@@ -1,0 +1,105 @@
+/* Background */
+body{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.auth-page {
+    /* display: none; */
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: 
+    linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+    url('https://wallpapers.com/images/hd/best-cars-background-22hiwetc3e1xrrbc.jpg') center/cover no-repeat;
+  font-family: 'Poppins', sans-serif;
+}
+.auth-page p{
+  color: white;
+  font-size: 30px;
+  font-family: cursive;
+  font-weight: bolder;
+}
+
+/* Glass form */
+.login-form {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(3px);
+  padding: 2rem;
+  border-radius: 20px;
+  width: 320px;
+  text-align: center;
+  color: #fff;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+
+.login-form h2 {
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+/* Input fields with icons */
+.input-group {
+  display: flex;
+  align-items: center;
+  background: rgba(255,255,255,0.2);
+  padding: 0.6rem 1rem;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+}
+
+.input-group span {
+  margin-right: 10px;
+  color: #fff;
+  font-size: 20px;
+}
+
+.input-group input {
+  border: none;
+  outline: none;
+  background: transparent;
+  flex: 1;
+  color: #fff;
+  font-size: 14px;
+}
+
+.input-group input::placeholder {
+  color: rgba(255,255,255,0.7);
+}
+
+/* Button */
+.submit-button {
+  width: 100%;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 12px;
+  background: #ff4d4d;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.submit-button:hover {
+  background: #e63939;
+}
+
+/* Register / links */
+.register {
+  margin-top: 1rem;
+  font-size: 14px;
+}
+
+.register a {
+  color: #fff;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.register a:hover {
+  color: #ff4d4d;
+}
+

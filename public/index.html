@@ -1,0 +1,219 @@
+<!-- public/index.html -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Car Search</title>
+    <link rel="stylesheet" href="app.css" />
+    <link rel="stylesheet" href="auth.css" />
+    <link rel="stylesheet" href="admin.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    rel="stylesheet">
+  </head>
+  <body>
+    <div class="auth-page" id="auth-page">
+      <p>Discover. Drive. Dominate</p>
+      <form class="login-form" id="login-form">
+        <h3>Login</h3>
+        <!-- Email -->
+        <div class="input-group">
+          <span class="material-symbols-outlined">mail</span>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Email"
+            required
+          />
+        </div>
+        <!-- Password -->
+        <div class="input-group">
+          <span class="material-symbols-outlined">vpn_key</span>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Password"
+            required
+          />
+        </div>
+        <!-- Submit -->
+        <button class="submit-button" type="submit">Login</button>
+
+        <!-- signUp -->
+        <div class="register">
+          <a href="#">Forgot Password?</a> |
+          <a href="#"><span id="signup-button">Create Account</span></a>
+        </div>
+      </form>
+      <p id="login-error" class="error"></p>
+    </div>
+
+    <!-- CLIENT/USERS PAGE -->
+    <div class="client-page" id="client-page">
+      <div class="headers">
+        <h1>Road Angels Dealership and Transport</h1>
+        <span id="client-user-email" class="user-email"></span>
+      </div>
+      <section class="hero">
+        <video class="hero-video" autoplay muted loop playsinline>
+          <source src="fordranger.mp4" type="video/mp4" />
+          <!-- Your browser does not support the video tag. -->
+        </video>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+          <h1>Find Your Perfect Ride</h1>
+          <p>Road Angels Dealership and Transport brings you the best exclusive deals</p>
+            <p class="span">Explore top deals on new and used cars, trucks, and SUVs.
+            </p>
+          <a href="#" class="hero-btn">Browse Cars</a>
+        </div>
+      </section>
+      <!-- <section class="hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1>Find Your Dream Car</h1>
+    <p>Road Angels Dealership and Transport brings you the best deals</p>
+    <a href="#" class="hero-btn">Browse Cars</a>
+  </div>
+</section> -->
+
+      <form id="searchForm" class="search-form">
+        <input type="text" name="make" placeholder="Car make" required />
+        <input type="text" name="model" placeholder="Car model" />
+        <input type="number" name="year" placeholder="Year" />
+        <input type="text" name="transmission" placeholder="Transmission" />
+        <input type="number" name="minPrice" placeholder="Min Price" />
+        <input type="number" name="maxPrice" placeholder="Max Price" />
+        <button type="submit">Search</button>
+        <button type="button" id="showAllBtn">Show All Cars</button>
+      </form>
+
+      <div id="results" class="car-list"></div>
+
+      <div id="car-modal" class="modal">
+        <div class="modal-content">
+          <span class="close-modal" onclick="closeModal()">&times;</span>
+          <div class="modal-body">
+            <div class="modal-image">
+              <img src="" alt="car" id="modal-image" />
+            </div>
+            <div class="car-modal-details">
+              <h3 id="modal-make-model"></h3>
+              <p id="modal-transmission"></p>
+              <p id="modal-year"></p>
+              <p id="modal-price"></p>
+              <button class="buy-button">Buy</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+         <div>
+          <p>All rights reserved &copy;</p>
+          <div>
+            <span class="contact">Contact Us</span><br/>
+            <span>generaltonde@gmail.com</span><br/>
+            <span>+27 61 310 1642</span>
+          </div>
+         
+         </div>
+      </footer>
+    </div>
+
+    <!-- ADMIN PAGE -->
+    <section id="admin-page" style="display: none">
+      <div class="headers">
+        <div class="header-content">
+          <h1>Road Angels Admin Panel</h1>
+          <span id="admin-user-email" class="user-email"><span class="material-icons">
+            account_circle
+            </span></span>
+        </div>
+        </div>
+      
+      <!-- Add Car Form -->
+      <form id="addCarForm">
+        <input type="text" name="make" placeholder="Make" required />
+        <input type="text" name="model" placeholder="Model" required />
+        <input type="number" name="year" placeholder="Year" required />
+        <input type="number" name="price" placeholder="Price" required />
+        <input
+          type="text"
+          name="transmission"
+          placeholder="Transmission"
+          required
+        />
+        <input type="url" name="url" placeholder="Image URL" required />
+
+        <button type="submit">Add Car</button>
+      </form>
+
+      <!-- Car List for Admin -->
+      <div id="admin-car-list"></div>
+    </section>
+
+    <!-- ADMIN EDIT CAR MODAL -->
+    <div id="editCarModal" class="modal" style="display: none">
+      <div class="modal-content">
+        <span class="close" onclick="closeEditModal()">&times;</span>
+        <h2>Edit Car</h2>
+        <form id="editCarForm">
+          <input type="hidden" id="edit-id" name="id" />
+          <input
+            type="text"
+            id="edit-make"
+            name="make"
+            placeholder="Make"
+            required
+          />
+          <input
+            type="text"
+            id="edit-model"
+            name="model"
+            placeholder="Model"
+            required
+          />
+          <input
+            type="number"
+            id="edit-year"
+            name="year"
+            placeholder="Year"
+            required
+          />
+          <input
+            type="number"
+            id="edit-price"
+            name="price"
+            placeholder="Price"
+            required
+          />
+          <input
+            type="text"
+            id="edit-transmission"
+            name="transmission"
+            placeholder="Transmission"
+            required
+          />
+          <input
+            type="url"
+            id="edit-url"
+            name="url"
+            placeholder="Image URL"
+            required
+          />
+          <button type="submit">Update Car</button>
+        </form>
+      </div>
+    </div>
+     
+
+
+    <script src="index.js"></script>
+  </body>
+</html>
